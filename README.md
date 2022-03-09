@@ -87,3 +87,35 @@ For security issues or concerns, please do not open an issue or pull request on 
 ## License Summary
 
 This sample code is made available under a modified MIT license. See the LICENSE file.
+
+## Links Collection
+
+https://aws.amazon.com/premiumsupport/knowledge-center/eks-custom-linux-ami/
+
+
+make k8s kubernetes_version=1.21.5 kubernetes_build_date=2022-01-21
+
+make 1.21
+
+Please be aware that the build will not work with an AWS_PROFILE set but instead you need to export the credentials
+as individual environment variables like:
+
+export AWS_ACCESS_KEY_ID=AS...GW
+export AWS_SECRET_ACCESS_KEY=BaRA....8fT07
+export AWS_SESSION_TOKEN=IQoJb...0w==
+
+# Fixes for: CVE-2021-27363, CVE-2021-27364, CVE-2021-27365 
+# see https://alas.aws.amazon.com/AL2/ALASLIVEPATCH-2021-044.html
+sudo yum update kernel-livepatch-4.14.219-164.354
+
+# Fixes for: CVE-2021-40490
+# see https://alas.aws.amazon.com/AL2/ALASLIVEPATCH-2021-064.html
+yum update kernel-livepatch-4.14.238-182.422
+# see https://alas.aws.amazon.com/AL2/ALASLIVEPATCH-2021-061.html
+yum update kernel-livepatch-4.14.238-182.421
+# see https://alas.aws.amazon.com/AL2/ALASLIVEPATCH-2021-063.html
+yum update kernel-livepatch-4.14.241-184.433
+# see https://alas.aws.amazon.com/AL2/ALASLIVEPATCH-2021-062.html
+yum update kernel-livepatch-4.14.243-185.433
+# see https://alas.aws.amazon.com/AL2/ALASLIVEPATCH-2021-060.html
+yum update kernel-livepatch-4.14.232-177.418
